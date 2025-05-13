@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Plataforma Dr. Antonio AI - Frontend Next.js
 
-## Getting Started
+Este projeto é o frontend da Plataforma Dr. Antonio AI, desenvolvido com Next.js e Tailwind CSS.
 
-First, run the development server:
+## Funcionalidades Principais
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Autenticação de usuários (simulada)
+- Upload de documentos (simulado com processamento mockado de NEP/NLP)
+- Painel de visualização de leads gerados
+- Detalhamento de documentos e leads
+- Rotas protegidas que exigem login
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura do Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/pages`: Contém as páginas da aplicação (roteamento baseado em arquivos do Next.js).
+- `/components`: Contém os componentes React reutilizáveis.
+- `/contexts`: Contém os contextos React (ex: AuthContext para autenticação).
+- `/services`: Contém os serviços para interagir com APIs (atualmente mockados, ex: nepService.js, nlpService.js).
+- `/styles`: Contém os estilos globais (globals.css).
+- `/public`: Contém os ativos estáticos (imagens, favicons, etc.).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts Disponíveis
 
-## Learn More
+No diretório do projeto, você pode executar:
 
-To learn more about Next.js, take a look at the following resources:
+### `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Executa a aplicação em modo de desenvolvimento.
+Abra [http://localhost:3000](http://localhost:3000) para visualizá-la no navegador.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A página será recarregada se você fizer edições.
+Você também verá quaisquer erros de lint no console.
 
-## Deploy on Vercel
+### `npm run build`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Compila a aplicação para produção na pasta `.next`.
+Ele otimiza a aplicação para melhor performance.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### `npm run start`
+
+Inicia a aplicação em modo de produção após o build.
+
+## Deploy no Render.com (ou similar)
+
+Para fazer o deploy desta aplicação Next.js como um Web Service dinâmico (Node.js) no Render.com ou plataforma similar:
+
+1.  **Conecte seu Repositório Git:** Conecte o repositório Git que contém este código à sua plataforma de deploy.
+2.  **Configurações de Build e Start:**
+    *   **Ambiente (Environment):** Node
+    *   **Comando de Build (Build Command):** `npm install && npm run build`
+    *   **Comando de Início (Start Command):** `npm run start`
+    *   **Diretório Raiz (Root Directory):** Deixe em branco ou aponte para a raiz do projeto Next.js.
+3.  **Variáveis de Ambiente:** Configure quaisquer variáveis de ambiente necessárias (nenhuma específica para a simulação atual, mas APIs reais exigiriam URLs, chaves, etc.).
+4.  **Deploy:** Inicie o processo de deploy.
+
+## Usuários de Teste (Simulados)
+
+Para fins de teste, os seguintes usuários estão configurados no `AuthContext.js`:
+
+- **Email:** `gestor@drantonio.ai`
+- **Senha:** `password123`
+
+- **Email:** `consultor@drantonio.ai`
+- **Senha:** `password123`
+
